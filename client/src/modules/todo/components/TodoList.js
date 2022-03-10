@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardContent, Checkbox } from '@material-ui/core'
+import { Card, CardContent, Checkbox, Box } from '@material-ui/core'
 import { CheckCircle, RadioButtonUnchecked } from '@material-ui/icons'
 
 export default class TodoList extends Component {
@@ -8,6 +8,10 @@ export default class TodoList extends Component {
 
         this.showTodos = this.showTodos.bind(this);
     }
+
+    handleChange = (event) => {
+        console.log('asd');
+    };
 
     showTodos() {
         const { todos, todosLoading } = this.props;
@@ -20,8 +24,9 @@ export default class TodoList extends Component {
                             <Checkbox
                                 icon={<RadioButtonUnchecked />}
                                 checkedIcon={<CheckCircle className="checkedColor" />}
+                                onChange={this.handleChange}
                             />
-                            {todo.content}
+                            <Box className="todoContent" component="span" sx={{ display: 'inline' }}>{todo.content}</Box>
                         </CardContent>
                     </Card>
                 );

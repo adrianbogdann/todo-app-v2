@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 
-import { withTodos } from '../providers';
-import { TodoList, TodoForm } from '../components';
+import { Login } from '../components';
 
 import { Container, Grid } from '@material-ui/core';
 import '../styles/styles.css';
 
-class TodoRoot extends Component {
+class AuthRoot extends Component {
     render() {
-        const { todos, todosLoading } = this.props;
 
         return (
             <Container>
-                <h2 className="todo-title">T O D O</h2>
+                <h2 className="todo-title">Login</h2>
                 <hr />
                 <Grid container>
                     <Grid item xs={8}>
-                        <TodoForm />
-                        <TodoList todosLoading={todosLoading} todos={todos} />
+                        <Login />
                     </Grid>
                 </Grid>
             </Container>
@@ -25,4 +22,4 @@ class TodoRoot extends Component {
     }
 }
 
-export default withTodos(TodoRoot);
+export default AuthRoot;

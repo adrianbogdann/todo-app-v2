@@ -20,6 +20,10 @@ module.exports = {
         async getAllTodos(root, args, context) {
             return await Todo.findAll();
         },
+        async getUserTodos(_, args, { user = null }) {
+            console.log('Context', user);
+            return await Todo.findAll({ where: { userId: user.id } });
+        },
         async getSingleTodo(_, { todoId }, context) {
             return Todo.findByPk(todoId);
         },

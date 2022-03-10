@@ -13,6 +13,7 @@ module.exports = gql`
 
 extend type Query {
     getAllTodos: [Todo!]
+    getUserTodos: [Todo!]
     getSingleTodo(todoId: Int!): Todo
 }
 

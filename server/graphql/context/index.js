@@ -5,8 +5,12 @@ const { AuthenticationError } = require('apollo-server-express')
 const verifyToken = async (token) => {
     try {
         if (!token) return null;
-        const { id } = await jwt.verify(token, 'mySecret');
+
+        //authParts = Bearer aoijd8912u938u1289oj
+        let authParts = token.split(' ');
+        const { id } = await jwt.verify(authParts[1], 'mySecret');
         const user = await User.findByPk(id);
+
         return user;
     } catch (error) {
         throw new AuthenticationError(error.message);
@@ -15,6 +19,6 @@ const verifyToken = async (token) => {
 
 module.exports = async ({ req }) => {
     const token = (req.headers && req.headers.authorization) || '';
-    const user = await verifyToken(token)
+    const user = await verifyToken(token);
     return { user };
 };

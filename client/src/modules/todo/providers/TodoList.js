@@ -4,7 +4,7 @@ import { Query } from 'react-apollo';
 
 export const GET_TODOS = gql`
   {
-    getAllTodos {
+    getUserTodos {
       id
       content
       author {
@@ -17,15 +17,15 @@ export const GET_TODOS = gql`
 `;
 
 const withTodos = Component => props => {
-    return (
-        <Query query={GET_TODOS}>
-            {({ loading, data }) => {
-                return (
-                    <Component todosLoading={loading} todos={data && data.getAllTodos} {...props} />
-                );
-            }}
-        </Query>
-    );
+  return (
+    <Query query={GET_TODOS}>
+      {({ loading, data }) => {
+        return (
+          <Component todosLoading={loading} todos={data && data.getUserTodos} {...props} />
+        );
+      }}
+    </Query>
+  );
 };
 
 export default withTodos;

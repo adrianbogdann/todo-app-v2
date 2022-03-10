@@ -12,10 +12,9 @@ class TodoForm extends Component {
     submitForm(event) {
         event.preventDefault();
 
-        console.log('asd');
-        // this.props.addTodo({
-        //     content: event.target.content.value
-        // });
+        this.props.addTodo({
+            content: event.target.content.value
+        });
     }
 
     render() {

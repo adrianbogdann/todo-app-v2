@@ -1,6 +1,6 @@
 # todo-app
 Todo app with React/Node + GraphQL, Apollo, sequelize, material-ui
-How to run:
+-> How to run:
 
 -> Create .env file in project root with: DB_HOST, PORT, DB_USERNAME, DB_PASSWORD
 
@@ -17,22 +17,22 @@ How to run:
 
 -> CREATE Models & Migrations:
 
--npx sequelize-cli model:generate --name Todos --attributes content:text,userId:integer,status:string
+- npx sequelize-cli model:generate --name Todos --attributes content:text,userId:integer,status:string
 
 - npx sequelize-cli model:generate --name User --attributes name:string,email:string,password:string
 
 -> DB CREATE
-npx sequelize-cli db:create / node run db:create
+- npx sequelize-cli db:create / node run db:create
 
 -> DB MIGRATE:
-npx sequelize-cli db:migrate
+- npx sequelize-cli db:migrate
 
 -> DB CREATE SEEDS ( npm run db:g:seed creates seeders in the root folder - no good)
-npx sequelize-cli seed:generate --name <SEED_NAME>
+- npx sequelize-cli seed:generate --name <SEED_NAME>
 
 -> DB RUN SEEDS
-npx sequelize-cli db:seed:all
-npx sequelize-cli db:seed --seed <SEED_NAME>.js
+- npx sequelize-cli db:seed:all
+- npx sequelize-cli db:seed --seed <SEED_NAME>.js
 
 -> cd client 
    npm start

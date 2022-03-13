@@ -1,30 +1,33 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { ApolloProvider } from 'react-apollo';
 import apolloClient from './config/createApolloClient';
 import { Todos } from './modules/todo';
 import { Login, Register } from './modules/auth';
-import { Header } from './modules/layout';
+import { Header, Footer } from './modules/layout';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Box } from '@material-ui/core'
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <ApolloProvider client={apolloClient}>
-          <div className="center w85">
-            <Header />
-            <div className="ph3 pv1 background-gray">
-              <Routes>
-                <Route path="/" element={<Todos />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-              </Routes>
-            </div>
-          </div>
-        </ApolloProvider>
-      </BrowserRouter>
-    )
-  }
+
+const App = () => {
+
+
+  return (
+    <BrowserRouter>
+      <ApolloProvider client={apolloClient}>
+        <Box component='div' id="mainContainer">
+          <Header />
+          <Box component='div'>
+            <Routes>
+              <Route path="/" element={<Todos />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </Box>
+        </Box>
+        <Footer />
+      </ApolloProvider>
+    </BrowserRouter>
+  )
 }
 
 export default App;

@@ -1,33 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { FormControl, TextField } from '@material-ui/core'
+import { FormControl, TextField, Box } from '@material-ui/core'
 import { withAddTodo } from '../providers';
 
-class TodoForm extends Component {
-    constructor(props) {
-        super(props);
-        this.submitForm = this.submitForm.bind(this);
-    }
+const TodoForm = (props) => {
 
-    submitForm(event) {
+    const submitForm = (event) => {
         event.preventDefault();
 
-        this.props.addTodo({
+        props.addTodo({
             content: event.target.content.value
         });
     }
 
-    render() {
-        return (
-            <div className="todo-form">
-                <form onSubmit={(event) => this.submitForm(event)}>
-                    <FormControl fullWidth >
-                        <TextField fullWidth type="textarea" name="content" id="todoContent" placeholder="Create new todo..." />
-                    </FormControl>
-                </form>
-            </div>
-        )
-    }
+    return (
+        <Box component="div" className="todo-form">
+            <form onSubmit={(event) => submitForm(event)}>
+                <FormControl fullWidth >
+                    <TextField fullWidth type="textarea" name="content" id="todoContent" placeholder="Create new todo..." />
+                </FormControl>
+            </form>
+        </Box>
+    )
 }
 
 export default withAddTodo(TodoForm);

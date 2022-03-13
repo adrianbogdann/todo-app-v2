@@ -19,12 +19,19 @@ extend type Query {
 
  extend type Mutation {
      createTodo(content: String!): CreateTodoResponse
+     updateTodo(id: Int!, status: String!): UpdateTodoResponse
+     deleteTodo(id: Int!) : Int
  }
 
  type CreateTodoResponse {
     id: Int!
     content: String!
     createdAt: String!
+ }
+
+ type UpdateTodoResponse {
+     id: Int!
+     status: String!
  }
 
 `;

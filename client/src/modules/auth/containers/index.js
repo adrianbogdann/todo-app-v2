@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Login } from '../components';
 
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 import '../styles/styles.css';
 
 class AuthRoot extends Component {
@@ -10,7 +10,9 @@ class AuthRoot extends Component {
 
         return (
             <Container>
-                <h2 className="todo-title">Login</h2>
+                <Typography variant='h3' component='h2' className="todo-title">
+                    Login
+                </Typography>
                 <hr />
                 <Grid container>
                     <Grid item xs={8}>

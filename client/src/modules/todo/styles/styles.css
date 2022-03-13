@@ -14,6 +14,8 @@
     color: #880a8e;
     box-shadow: 1px 2px 3px rgba(136,10,142,0.3);
   }
+
+  /* .black-theme .todo-form { color: white!important;} */
   
   .todo-form {
     padding: 25px 20px;
@@ -32,4 +34,19 @@
 
   .checkedColor {
       color: purple!important
+  }
+
+  a {
+    text-decoration: none;
+    color: white!important
+  }
+
+  .headerLink {
+    font-size: 20px;
+    font-weight: 700;
+    color: white
+  }
+
+  .footerLink {
+    margin-left: 10px;
   }

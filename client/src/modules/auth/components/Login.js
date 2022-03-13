@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import Paper from '@material-ui/core/Paper'
+import { Container, Box } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 import { LoginUser } from '../providers'
+import PurpleButton from './Button'
 // import { Navigate } from 'react-router-dom'
 
+
+//Class component so I can remember how to work with it
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -34,7 +36,6 @@ class Login extends Component {
         });
 
         if (response) {
-            console.log('DATA', response.data.login.token);
             window.localStorage.setItem('token', response.data.login.token)
 
             // Redirect to home page
@@ -44,47 +45,50 @@ class Login extends Component {
     }
 
     render() {
+
         return (
-            <Paper >
-                <Typography variant='h3' component='h1'>
-                    Login
-                </Typography>
-                <form onSubmit={this.handleSubmit}
-                >
-                    <TextField
-                        variant='outlined'
-                        margin='normal'
-                        required
-                        fullWidth
-                        id='username'
-                        name='username'
-                        label='Username'
-                        value={this.state.username}
-                        onChange={this.handleChange}
-                        autoFocus
-                    />
-                    <TextField
-                        variant='outlined'
-                        margin='normal'
-                        required
-                        fullWidth
-                        id='password'
-                        name='password'
-                        label='Password'
-                        type='password'
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
-                    <Button
-                        type='submit'
-                        fullWidth
-                        variant='contained'
-                        color='primary'
+            <Container >
+                <Box component='div' sx={{ mt: 5 }}>
+                    <Typography variant='h3' component='h2' className="auth-header">
+                        Login
+                    </Typography>
+                    <form onSubmit={this.handleSubmit}
                     >
-                        Sign in
-                    </Button>
-                </form>
-            </Paper>
+                        <TextField
+                            variant='outlined'
+                            margin='normal'
+                            required
+                            fullWidth
+                            id='username'
+                            name='username'
+                            label='Username'
+                            value={this.state.username}
+                            onChange={this.handleChange}
+                            autoFocus
+                        />
+                        <TextField
+                            variant='outlined'
+                            margin='normal'
+                            required
+                            fullWidth
+                            id='password'
+                            name='password'
+                            label='Password'
+                            type='password'
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
+                        <PurpleButton
+                            type='submit'
+                            fullWidth
+                            variant='contained'
+                            color='primary'
+                        >
+                            Sign in
+                        </PurpleButton>
+                    </form>
+                </Box>
+            </Container>
         );
     }
 }

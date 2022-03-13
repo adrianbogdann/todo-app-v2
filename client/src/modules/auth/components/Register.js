@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import Paper from '@material-ui/core/Paper'
+import { Container, Box } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 import { RegisterUser } from '../providers'
+import PurpleButton from './Button';
 // import { Navigate } from 'react-router-dom'
 
+//Class component so I can remember how to work with it
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -45,59 +46,61 @@ class Register extends Component {
 
     render() {
         return (
-            <Paper >
-                <Typography variant='h3' component='h1'>
-                    Register
-                </Typography>
-                <form onSubmit={this.handleSubmit}
-                >
-                    <TextField
-                        variant='outlined'
-                        margin='normal'
-                        required
-                        fullWidth
-                        id='username'
-                        name='username'
-                        label='Username'
-                        value={this.state.username}
-                        onChange={this.handleChange}
-                        autoFocus
-                    />
-                    <TextField
-                        variant='outlined'
-                        margin='normal'
-                        required
-                        fullWidth
-                        id='mail'
-                        name='mail'
-                        label='E-Mail'
-                        type='email'
-                        value={this.state.mail}
-                        onChange={this.handleChange}
-                        autoFocus
-                    />
-                    <TextField
-                        variant='outlined'
-                        margin='normal'
-                        required
-                        fullWidth
-                        id='password'
-                        name='password'
-                        label='Password'
-                        type='password'
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
-                    <Button
-                        type='submit'
-                        fullWidth
-                        variant='contained'
-                        color='primary'
-                    >
+            <Container >
+                <Box component='div' sx={{ mt: 5 }}>
+                    <Typography variant='h3' component='h1' className="auth-header">
                         Register
-                    </Button>
-                </form>
-            </Paper>
+                    </Typography>
+                    <form onSubmit={this.handleSubmit}
+                    >
+                        <TextField
+                            variant='outlined'
+                            margin='normal'
+                            required
+                            fullWidth
+                            id='username'
+                            name='username'
+                            label='Username'
+                            value={this.state.username}
+                            onChange={this.handleChange}
+                            autoFocus
+                        />
+                        <TextField
+                            variant='outlined'
+                            margin='normal'
+                            required
+                            fullWidth
+                            id='mail'
+                            name='mail'
+                            label='E-Mail'
+                            type='email'
+                            value={this.state.mail}
+                            onChange={this.handleChange}
+                            autoFocus
+                        />
+                        <TextField
+                            variant='outlined'
+                            margin='normal'
+                            required
+                            fullWidth
+                            id='password'
+                            name='password'
+                            label='Password'
+                            type='password'
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
+                        <PurpleButton
+                            type='submit'
+                            fullWidth
+                            variant='contained'
+                            color='primary'
+                        >
+                            Register
+                        </PurpleButton>
+                    </form>
+                </Box>
+            </Container>
         );
     }
 }
